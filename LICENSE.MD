@@ -1,0 +1,2 @@
+- JavaMail is under (EPL) V2.0 y (GPL) v2 with Classpath Exception
+- All other codes (writen by me) are under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
