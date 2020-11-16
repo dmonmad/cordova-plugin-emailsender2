@@ -48,7 +48,7 @@ public class EmailSender2 extends CordovaPlugin {
                         String subject = args.getString(6);
                         String body = args.getString(7);
                         List<String> attachments;
-                        if(args > 8){                        
+                        if(args.length() > 8){                        
                             attachments = getListFromString(args.getString(8));
                         }else{
                             attachments = null;
