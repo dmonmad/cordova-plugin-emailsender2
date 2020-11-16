@@ -137,8 +137,12 @@ public class EmailSender2 extends CordovaPlugin {
             message.setSubject(subject);
             message.setText(body);
 
+            Multipart multipart = new MimeMultipart();            
+            BodyPart bodyMessage = new MimeBodyPart();
+            bodyMessage.setContent(body, "text/html");
+            multipart.addBodyPart(bodyMessage);
+
             if(attachments != null){
-                Multipart multipart = new MimeMultipart();
                 
                 for(int i = 0; i<attachments.size(); i++){
 
