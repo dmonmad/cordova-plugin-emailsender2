@@ -1,9 +1,9 @@
 {
-  "name": "com.dj.emailsender2",
+  "name": "com.dmonmad.emailsender2",
   "version": "0.0.1",
   "description": "",
   "cordova": {
-    "id": "com.dj.emailsender2",
+    "id": "com.dmonmad.emailsender2",
     "platforms": [
       "android",
       "ios"

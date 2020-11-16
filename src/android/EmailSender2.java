@@ -1,4 +1,4 @@
-package com.dj.emailsender2;
+package com.dmonmad.emailsender2;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
