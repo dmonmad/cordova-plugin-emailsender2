@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.dj.emailsender2" version="0.0.1"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>EmailSender2</name>
+    <js-module name="EmailSender2" src="www/EmailSender2.js">
+        <clobbers target="cordova.plugins.EmailSender2" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="EmailSender2">
+                <param name="android-package" value="com.dj.emailsender2.EmailSender2" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/EmailSender2.java" target-dir="src/com/dj/emailsender2/EmailSender2" />
+
+        <lib-file src="src/android/libs/javax.mail.jar" />
+        <lib-file src="src/android/libs/activation.jar" />
+        <lib-file src="src/android/libs/additionnal.jar" />
+
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="EmailSender2">
+                <param name="ios-package" value="EmailSender2" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/EmailSender2.m" />
+    </platform>
+</plugin>
