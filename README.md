@@ -34,7 +34,7 @@ function onDeviceReady() {
         });
 
     }, function(error) {
-        console.error("ftp: connect error=" + error);
+        console.error("email couldn't be sent" + error);
     });
 }
 ```
