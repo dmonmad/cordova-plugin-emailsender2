@@ -48,14 +48,15 @@ public class EmailSender2 extends CordovaPlugin {
                         String subject = args.getString(6);
                         String body = args.getString(7);
                         List<String> attachments = null;
+                        
                         if(args.length() > 8){                        
                             attachments = getListFromString(args.getString(8));
                         }
 
                         sendEmail(ip, port, user, password, from, to, subject, body, attachments, callbackContext);
-
+                        callbackContext.success("Sent!");
                     } catch (Exception e) {
-                        callbackContext.error("VENGA YA TIO "+e.toString());
+                        callbackContext.error("Email couldn't be sent "+e.toString());
                     }
                 }
             });            
@@ -75,7 +76,6 @@ public class EmailSender2 extends CordovaPlugin {
 
                                 try{
                                     this.sendRealEmail(ip, port, user, password, from, to, subject, body, attachments);
-                                    callbackContext.success("Enviado!");
 
                                 }catch(FileNotFoundException e){                                    
                                     callbackContext.error(e.toString());
