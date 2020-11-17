@@ -47,14 +47,13 @@ public class EmailSender2 extends CordovaPlugin {
                         String to = args.getString(5);
                         String subject = args.getString(6);
                         String body = args.getString(7);
-                        List<String> attachments;
+                        List<String> attachments = null;
                         if(args.length() > 8){                        
                             attachments = getListFromString(args.getString(8));
-                        }else{
-                            attachments = null;
                         }
 
                         sendEmail(ip, port, user, password, from, to, subject, body, attachments, callbackContext);
+
                     } catch (Exception e) {
                         callbackContext.error("VENGA YA TIO "+e.toString());
                     }
@@ -142,7 +141,7 @@ public class EmailSender2 extends CordovaPlugin {
             bodyMessage.setContent(body, "text/html");
             multipart.addBodyPart(bodyMessage);
 
-            if(attachments != null){
+            if(attachments != null && attachments.size() > 0){
                 
                 for(int i = 0; i<attachments.size(); i++){
 
@@ -154,8 +153,9 @@ public class EmailSender2 extends CordovaPlugin {
                     multipart.addBodyPart(messageBodyPart);
                 }
 
-                message.setContent(multipart);
-            }          
+            }        
+
+            message.setContent(multipart);  
 
             Transport.send(message);
 
@@ -171,7 +171,9 @@ public class EmailSender2 extends CordovaPlugin {
         List<String> list = new ArrayList<String>();
         String parts[] = s.split(",");
         for(int i = 0; i<parts.length; i++){
-            list.add(parts[i]);
+            if(parts[i].length() > 0){
+                list.add(parts[i]);
+            }
         }
         return list;
     }

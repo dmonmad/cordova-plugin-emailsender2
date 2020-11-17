@@ -18,8 +18,14 @@ var exec = require('cordova/exec');
  * @param {function} errorCallback The error callback. If triggered, means fail.
  */
 exports.sendEmail = function (ip, port, user, password, from, to, subject, body, attachments, success, error) {
-    if (attachments)
+    if (attachments === void 0){
+        console.log("its not null");
+        console.log(attachments);
+        console.log(attachments.length);
         exec(success, error, 'EmailSender2', 'sendEmail', [ip, port, user, password, from, to, subject, body, attachments.toString()]);
-    else
-        exec(success, error, 'EmailSender2', 'sendEmail', [ip, port, user, password, from, to, subject, body, null]);
+    }
+    else {
+        console.log("Its null");
+        exec(success, error, 'EmailSender2', 'sendEmail', [ip, port, user, password, from, to, subject, body, ""]);
+    }
 };
